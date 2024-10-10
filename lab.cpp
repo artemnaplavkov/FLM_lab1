@@ -107,11 +107,9 @@ int main(){
 				for (int l = 0; l <= GPS.size() - 1; l++) {
 					if (GPS[l].first.second == previos2 || GPS[l].first.second == previos1) {
 						GPS[l].first.second = alph;
-						cout << "pen \n";
 					}
 					if (GPS[l].first.first == previos1 || GPS[l].first.first == previos2) {
 						GPS[l].first.first = alph;
-						cout << "pen \n";
 					}
 				}
 			}
