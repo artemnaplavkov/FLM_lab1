@@ -38,7 +38,7 @@ int main(){
 	cout << "Enter the number of clicks \n";
 	cin >> counter;
 
-	for (int i = 0; i <= counter; i++) { 
+	for (int i = 0; i <= counter-1; i++) { 
 		cout << "Insert " << i + 1 << " letter of grammar, by using ->  \n";
 		cin >> gram1;
 
