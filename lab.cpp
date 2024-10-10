@@ -8,6 +8,7 @@ using namespace std;
 
 string gram1;
 string gram2;
+int counter;
 
 vector <char> gramG;
 vector <char> gramP;
@@ -34,12 +35,14 @@ int main(){
 			gramP.push_back(gram2[i]);
 	}
 
+	cout << "Enter the number of clicks \n";
+	cin >> counter;
 
-	for (int i = 0; i <= 1; i++) { //Менять
+	for (int i = 0; i <= counter; i++) { 
 		cout << "Insert " << i + 1 << " letter of grammar, by using ->  \n";
 		cin >> gram1;
 
-		if (gram1[1] != '-' || gram1[2] != '>')// || (find(gramG.begin(), gramG.end(), gram1[1]) == gramG.end()) || (find(gramP.begin(), gramP.end(), gram1[4]) == gramP.end()))
+		if (gram1[1] != '-' || gram1[2] != '>')
 		{
 			cout << "incorrect insert \n ";
 			i--;
