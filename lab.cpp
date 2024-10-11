@@ -27,14 +27,12 @@ int main(){
 		if (gram1[i] != '{' and gram1[i] != '}' and gram1[i] != ',')
 			gramG.push_back(gram1[i]);
 	}
-
 	cout << "Insert grammatic P like this: {a,b,+,-} \n";
 	cin >> gram2;
 	for (int i = 0; i <= gram2.size(); i++) {
 		if (gram2[i] != '{' and gram2[i] != '}' and gram2[i] != ',')
 			gramP.push_back(gram2[i]);
 	}
-
 	cout << "Enter the number of clicks \n";
 	cin >> counter;
 
@@ -115,13 +113,8 @@ int main(){
 			}
 		}
 	}
-			
-	
-	
-
 	for (int i = 0; i <= GPS.size() - 1; i++) {
 		cout << "\n" << GPS[i].first.first << " -> " << GPS[i].second << " -> " << GPS[i].first.second << " \n";
 	}
-
 	return 0;
 }
