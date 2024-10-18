@@ -19,7 +19,6 @@ vector <pair<pair<char, char>, char>> GPS;
 string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
-
 int main(){
 	cout << "Insert grammatic G like this: {K,L,M,N} \n";
 	cin >> gram1;
@@ -27,6 +26,7 @@ int main(){
 		if (gram1[i] != '{' and gram1[i] != '}' and gram1[i] != ',')
 			gramG.push_back(gram1[i]);
 	}
+
 	cout << "Insert grammatic P like this: {a,b,+,-} \n";
 	cin >> gram2;
 	for (int i = 0; i <= gram2.size(); i++) {
@@ -69,7 +69,19 @@ int main(){
 			GS = make_pair(gram1[0], gram1[7]);
 			P = make_pair(GS, gram1[6]);
 			GPS.push_back(P);
-		}	
+		}
+
+		if (gram1[8] == '|' && (!(!gram1[9])) && (!gram1[10])) {
+			gramG.push_back('@');
+			GS = make_pair(gram1[0], '@');
+			P = make_pair(GS, gram1[9]);
+			GPS.push_back(P);
+		}
+		else if (gram1[8] == '|' && (!(!gram1[9])) && (!(!gram1[10]))) {
+			GS = make_pair(gram1[0], gram1[10]);
+			P = make_pair(GS, gram1[9]);
+
+
 	}
 
 	for (int i = 0; i <= GPS.size() - 1; i++) {
@@ -112,7 +124,7 @@ int main(){
 				}
 			}
 		}
-	}
+	}		
 	for (int i = 0; i <= GPS.size() - 1; i++) {
 		cout << "\n" << GPS[i].first.first << " -> " << GPS[i].second << " -> " << GPS[i].first.second << " \n";
 	}
