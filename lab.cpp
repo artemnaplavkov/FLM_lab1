@@ -59,35 +59,38 @@ int main() {
 		GPS.push_back(P);
 
 
-		if (gram1[5] == '|' && (!(!gram1[6])) && (!gram1[7])) {
-			gramG.push_back('@');
-			GS = make_pair(gram1[0], '@');
-			P = make_pair(GS, gram1[6]);
-			GPS.push_back(P);
+		if (gram1.size() == 7) {
+			if (gram1[5] == '|' && (!(!gram1[6])) && (!gram1[7])) {
+				gramG.push_back('@');
+				GS = make_pair(gram1[0], '@');
+				P = make_pair(GS, gram1[6]);
+				GPS.push_back(P);
+			}
 		}
-		else if (gram1[5] == '|' && (!(!gram1[6])) && (!(!gram1[7]))) {
-			GS = make_pair(gram1[0], gram1[7]);
-			P = make_pair(GS, gram1[6]);
-			GPS.push_back(P);
+		else if (gram1.size() == 8) {
+			if (gram1[5] == '|' && (!(!gram1[6])) && (!(!gram1[7]))) {
+				GS = make_pair(gram1[0], gram1[7]);
+				P = make_pair(GS, gram1[6]);
+				GPS.push_back(P);
+			}
 		}
+		if (gram1.size() == 10) {
+			if (gram1[8] == '|' && (!(!gram1[9])) && (!gram1[10])) {
+				gramG.push_back('@');
+				GS = make_pair(gram1[0], '@');
+				P = make_pair(GS, gram1[9]);
+				GPS.push_back(P);
+			}
+		}
+		else if (gram1.size() == 11) {
+			if (gram1[8] == '|' && (!(!gram1[9])) && (!(!gram1[10]))) {
+				GS = make_pair(gram1[0], gram1[10]);
+				P = make_pair(GS, gram1[9]);
+				GPS.push_back(P);
 
-		if (gram1[8] == '|' && (!(!gram1[9])) && (!gram1[10])) {
-			gramG.push_back('@');
-			GS = make_pair(gram1[0], '@');
-			P = make_pair(GS, gram1[9]);
-			GPS.push_back(P);
-		}
-		else if (gram1[8] == '|' && (!(!gram1[9])) && (!(!gram1[10]))) {
-			GS = make_pair(gram1[0], gram1[10]);
-			P = make_pair(GS, gram1[9]);
-			GPS.push_back(P);
-
+			}
 		}
 	}
-
-		for (int i = 0; i <= GPS.size() - 1; i++) {
-			cout << GPS[i].first.first << " -> " << GPS[i].second << " -> " << GPS[i].first.second << " \n";
-		}
 
 		for (int i = 0; i <= gramG.size() - 1; i++) {
 			for (int j = 0; j <= (alphabet.size() - gramG.size() + 1); j++) {
@@ -103,13 +106,12 @@ int main() {
 			char transfer = GPS[i].second;
 			char letter_second = GPS[i].first.second;
 
-			for (int j = i + 1; j <= GPS.size() - 1; j++) {
+			for (int j = i + 1; j <= GPS.size() - 1; j++) { //
 				char previos1 = letter_second;
 				char previos2 = GPS[j].first.second;
 				char alph = alphabet[0];
 
 				if (letter_first == GPS[j].first.first && transfer == GPS[j].second) {
-
 					GPS[i].first.second = alphabet[0];
 					alphabet.erase(0, 1);
 					GPS.erase(GPS.begin() + j);
@@ -117,6 +119,7 @@ int main() {
 
 					for (int l = 0; l <= GPS.size() - 1; l++) {
 						if (GPS[l].first.second == previos2 || GPS[l].first.second == previos1) {
+							cout << "123";
 							GPS[l].first.second = alph;
 						}
 						if (GPS[l].first.first == previos1 || GPS[l].first.first == previos2) {
@@ -126,8 +129,9 @@ int main() {
 				}
 			}
 		}
-		for (int i = 0; i <= GPS.size() - 1; i++) {
-			cout << "\n" << GPS[i].first.first << " -> " << GPS[i].second << " -> " << GPS[i].first.second << " \n";
+		cout << "\n";
+		for (int i = 0; i <= GPS.size()-1; i++) {
+			cout << GPS[i].first.first << " -> " << GPS[i].second << " -> " << GPS[i].first.second << " \n";
 		}
 		return 0;
 	}
